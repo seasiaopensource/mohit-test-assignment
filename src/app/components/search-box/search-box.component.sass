@@ -1,0 +1,93 @@
+.srch
+  display: block
+  position: relative
+  background: #f3f3f3f
+  border: 1px solid #ddd
+  border-radius: 4px
+  padding: 10px
+  &-box
+    &-input
+      width: 100%
+      border: 1px solid #ddd
+      border-radius: 4px 4px  0 0
+      background: #fff
+      padding: 10px
+      transition: all linear 0.3s
+      outline: 0
+  &-result
+    padding: 10px 0
+  &-result
+    .result
+      display: block
+      .r
+        &-load
+          &::after
+            content: ""
+            animation-duration: 3s
+            animation-name: fetch
+            animation-iteration-count: infinite
+        &-empty
+          display: block
+        &-error
+          color: red
+      &-list
+        list-style: none
+        margin: 0
+        padding: 0
+        &box
+          background: #fff
+          border: 1px solid #ddd
+          border-bottom: 0
+          padding: 15px
+          &-title
+            color: #888
+            font-size: 14px
+          &-info
+            margin: 7px 0 0 0
+          &-example
+            padding-left: 20px
+            font-weight: bold
+            font-size: 12px
+            position: relative
+            &:before
+              content: "Example:"
+              position: absolute
+              right: calc(100% - 12px)
+              font-weight: normal
+              color: #888
+          &:last-child
+            border-bottom: 1px solid #ddd
+
+@keyframes fetch
+  0%
+    content: ""
+  25%
+    content: "."
+  50%
+    content: ".."
+  75%
+    content: "..."
+  100%
+    content: "...."
+@-webkit-keyframes fetch
+  0%
+    content: ""
+  25%
+    content: "."
+  50%
+    content: ".."
+  75%
+    content: "..."
+  100%
+    content: "...."
+@-moz-keyframes fetch
+  0%
+    content: ""
+  25%
+    content: "."
+  50%
+    content: ".."
+  75%
+    content: "..."
+  100%
+    content: "...."

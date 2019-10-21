@@ -1,0 +1,33 @@
+<main class="srch">
+  <header class="site-header">
+    <div class="srch-box">
+      <input
+        type="text"
+        placeholder="Type here..."
+        class="srch-box-input"
+        [formControl]="searchText"
+      />
+    </div>
+  </header>
+  <section class="srch-result">
+    <div class="result">
+      <div class="r-load" *ngIf="isLoadingResults">Fetching</div>
+      <div
+        class="r-empty"
+        *ngIf="!isLoadingResults && !showError && searchText && results && results.length === 0"
+      >
+        No result found!!!
+      </div>
+      <div class="r-error" *ngIf="showError">Something went wrong :(</div>
+      <ul class="result-list" *ngIf="!isLoadingResults && !showError && results">
+        <li class="result-listbox" *ngFor="let item of results">
+          <span class="result-listbox-title">{{ item.word }}</span>
+          <p class="result-listbox-info">{{ item.definition }}</p>
+          <blockquote class="result-listbox-example">
+            {{ item.example }}
+          </blockquote>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
